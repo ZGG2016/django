@@ -1,0 +1,28 @@
+<form action="{% url 'comments:comment' post.pk %}" method="post" class="comment-form">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-md-4">
+      <label for="{{ form.name.id_for_label }}">{{ form.name.label }}：</label>
+{#   TODO  表单的字段 {{ form.name }}、{{ form.email }}、{{ form.url }} 等将自动渲染成表单控件#}
+      {{ form.name }}
+{#   TODO  渲染表单对应字段的错误（如果有的话）#}
+      {{ form.name.errors }}
+    </div>
+    <div class="col-md-4">
+      <label for="{{ form.email.id_for_label }}">{{ form.email.label }}：</label>
+      {{ form.email }}
+      {{ form.email.errors }}
+    </div>
+    <div class="col-md-4">
+      <label for="{{ form.url.id_for_label }}">{{ form.url.label }}：</label>
+      {{ form.url }}
+      {{ form.url.errors }}
+    </div>
+    <div class="col-md-12">
+      <label for="{{ form.text.id_for_label }}">{{ form.text.label }}：</label>
+      {{ form.text }}
+      {{ form.text.errors }}
+      <button type="submit" class="comment-btn">发表</button>
+    </div>
+  </div>    <!-- row -->
+</form>
